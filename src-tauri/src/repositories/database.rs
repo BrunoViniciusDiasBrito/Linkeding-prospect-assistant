@@ -48,8 +48,13 @@ fn run_migrations(connection: &Connection) -> RepositoryResult<()> {
             company TEXT,
             location TEXT,
             profileUrl TEXT NOT NULL,
+            photoUrl TEXT,
+            visibleButtonType TEXT,
             score INTEGER,
             badge TEXT,
+            reviewStatus TEXT NOT NULL DEFAULT 'pending',
+            favorite INTEGER NOT NULL DEFAULT 0,
+            note TEXT,
             createdAt TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
             CONSTRAINT Profile_searchId_fkey FOREIGN KEY (searchId) REFERENCES Search (id) ON DELETE CASCADE ON UPDATE CASCADE
         );
