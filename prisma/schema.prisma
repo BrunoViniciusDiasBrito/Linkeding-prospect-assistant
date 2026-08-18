@@ -25,10 +25,15 @@ model Profile {
   title      String?
   company    String?
   location   String?
-  profileUrl String
-  score      Int?
-  badge      String?
-  createdAt  DateTime @default(now())
+  profileUrl         String
+  photoUrl           String?
+  visibleButtonType  String?
+  score              Int?
+  badge              String?
+  reviewStatus       String   @default("pending")
+  favorite           Boolean  @default(false)
+  note               String?
+  createdAt          DateTime @default(now())
   search     Search   @relation(fields: [searchId], references: [id], onDelete: Cascade)
 
   @@index([searchId])

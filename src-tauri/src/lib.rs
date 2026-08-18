@@ -1,6 +1,3 @@
-pub mod commands;
-pub mod repositories;
-
 use commands::{profile_commands, search_commands};
 mod automation;
 mod commands;
@@ -23,6 +20,9 @@ pub fn run() {
             profile_commands::list_profiles,
             profile_commands::update_profile,
             profile_commands::delete_profile,
+            automation::open_saved_search_url,
+            ocr::detect_configured_badges,
+            vision::detect_profile_badges,
         ])
         .plugin(tauri_plugin_shell::init())
         .run(tauri::generate_context!())
