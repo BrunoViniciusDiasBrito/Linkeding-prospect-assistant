@@ -2,6 +2,14 @@ pub mod commands;
 pub mod repositories;
 
 use commands::{profile_commands, search_commands};
+mod automation;
+mod commands;
+mod database;
+mod domain;
+mod ocr;
+mod repositories;
+mod services;
+mod vision;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -16,6 +24,7 @@ pub fn run() {
             profile_commands::update_profile,
             profile_commands::delete_profile,
         ])
+        .plugin(tauri_plugin_shell::init())
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

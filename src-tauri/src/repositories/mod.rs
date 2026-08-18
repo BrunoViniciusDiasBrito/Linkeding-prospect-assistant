@@ -7,3 +7,4 @@ pub use profile_repository::{
     CreateProfilePayload, Profile, ProfileRepository, UpdateProfilePayload,
 };
 pub use search_repository::{CreateSearchPayload, Search, SearchRepository, UpdateSearchPayload};
+// Module placeholder for the initial project structure.
