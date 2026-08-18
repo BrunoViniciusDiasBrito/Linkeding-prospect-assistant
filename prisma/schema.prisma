@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Search {
+  id          String    @id @default(cuid())
+  name        String
+  url         String
+  cargo       String?
+  senioridade String?
+  location    String?
+  createdAt   DateTime  @default(now())
+  profiles    Profile[]
+}
+
+model Profile {
+  id         String   @id @default(cuid())
+  searchId   String
+  name       String
+  title      String?
+  company    String?
+  location   String?
+  profileUrl String
+  score      Int?
+  badge      String?
+  createdAt  DateTime @default(now())
+  search     Search   @relation(fields: [searchId], references: [id], onDelete: Cascade)
+
+  @@index([searchId])
+}
