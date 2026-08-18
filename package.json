@@ -1,4 +1,17 @@
 {
+  "name": "linkedin-prospect-assistant",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio"
+  },
+  "devDependencies": {
+    "prisma": "^6.14.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.14.0"
   "name": "linkeding-prospect-assistant",
   "version": "0.1.0",
   "private": true,
